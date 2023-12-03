@@ -33,5 +33,4 @@ for(let i = 0; i < data.length; i++){
         total += i + 1
     }
 }
-
 console.log(total)
