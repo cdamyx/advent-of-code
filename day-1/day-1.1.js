@@ -1,5 +1,5 @@
-const fs = require("fs");
-let data = fs.readFileSync("./input", { encoding: "utf8" }).split('\n');
+const helpers = require('../helpers')
+let data = helpers.data('./input')
 let total = 0
 
 for(let i = 0; i < data.length - 1; i++) {
