@@ -17,6 +17,16 @@ let map = {
 }
 
 for(let i = 0; i < data.length; i++) {
+  data[i] = data[i].replace(/eightwo/i, 'eighttwo')
+  data[i] = data[i].replace(/oneight/i, 'oneeight')
+  data[i] = data[i].replace(/twone/i, 'twoone')
+  data[i] = data[i].replace(/eighthree/i, 'eightthree')
+  data[i] = data[i].replace(/threeight/i, 'threeeight')
+  data[i] = data[i].replace(/fiveight/i, 'fiveeight')
+  data[i] = data[i].replace(/sevenine/i, 'sevennine')
+  data[i] = data[i].replace(/eighthree/i, 'eightthree')
+  data[i] = data[i].replace(/nineight/i, 'nineeight')
+  
   for(let j = 0; j < nums.length; j++){
       if(data[i].indexOf(nums[j]) != -1 && data[i].indexOf(nums[j]) < firstIndex) {
           firstIndex = data[i].indexOf(nums[j])
