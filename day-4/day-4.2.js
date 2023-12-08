@@ -7,6 +7,13 @@ let cardsMap = {}
     cardsMap[j] = 1
 }
 
+// function to copy cards
+const matchCopier = (nextCard, finalMatchIndex) => {
+    for(nextCard; nextCard <= finalMatchIndex; nextCard++){
+        cardsMap[nextCard]++
+    }
+}
+
 // iterate through each card
 for(let i = 0; i < data.length; i++){
     let currentRow = data[i]
@@ -17,6 +24,7 @@ for(let i = 0; i < data.length; i++){
     const myNums = currentRow.slice((myIndex), myIndex + 74).split(' ').filter(n => n)
     let matches = 0
     
+    // find matches per card
     for(let j = 0; j < myNums.length; j++){
         if(winningNums.indexOf(myNums[j]) > - 1){
             matches++
@@ -24,12 +32,6 @@ for(let i = 0; i < data.length; i++){
     }
 
     // for the current card, calculate the number of copies for the next cards
-    const matchCopier = (nextCard, finalMatchIndex) => {
-        for(nextCard; nextCard <= finalMatchIndex; nextCard++){
-            cardsMap[nextCard]++
-        }
-    }
-
     let counter = cardsMap[currentCard]
     while(counter > 0) {
         matchCopier(currentCard + 1, matches + currentCard)
@@ -37,4 +39,5 @@ for(let i = 0; i < data.length; i++){
     }
 }
 
-console.log(Object.values(cardsMap).reduce((a, b) => a + b, 0))
+// sum all of the values in cardsMap
+console.log(Object.values(cardsMap).reduce((a, b) => a + b))
